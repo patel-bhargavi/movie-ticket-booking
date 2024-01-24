@@ -21,7 +21,7 @@ const ShowList = () => {
                 {shows.map(show => (
                     <div key={show.show.id} className="show-card">
                         {show.show.image && show.show.image.medium && (
-                            <img src={show.show.image.medium} alt={show.show.name} className="show-image" />
+                            <img src={show.show.image.original} alt={show.show.name} className="show-image" />
                         )}
                         <div className="card-details">
                             <h3 className="show-name">{show.show.name}</h3>
