@@ -28,7 +28,7 @@ const ShowDetails = () => {
         <div className="show-details-container">
             <div className="show-details-card">
                 {show.image && show.image.medium && (
-                    <img src={show.image.medium} alt={show.name} className="show-details-image" />
+                    <img src={show.image.original} alt={show.name} className="show-details-image" />
                 )}
                 <div className="show-details-content">
                     <h1 className="show-details-name">{show.name}</h1>
