@@ -1,22 +1,47 @@
-// ShowList.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import '../styles/ShowList.css'; // Import the CSS file
 
 const ShowList = () => {
     const [shows, setShows] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         // Fetch data from the provided API
-        axios.get('https://api.tvmaze.com/search/shows?q=all')
-            .then(response => setShows(response.data))
-            .catch(error => console.error('Error fetching data:', error));
-    }, []);
+        const fetchShows = async () => {
+            let apiUrl = 'https://api.tvmaze.com/search/shows?q=all';
+
+            if (searchTerm) {
+                apiUrl = `https://api.tvmaze.com/search/shows?q=${searchTerm}`;
+            }
+
+            try {
+                const response = await axios.get(apiUrl);
+                setShows(response.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchShows();
+    }, [searchTerm]);
 
     return (
         <div className="show-list-container">
-            <h1>Trending Shows</h1>
+            <header className="app-header">
+                <div className="search-bar">
+                    <FontAwesomeIcon icon={faSearch} className="search-icon" />
+                    <input
+                        type="text"
+                        placeholder="Search Shows..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                </div>
+            </header>
             <div className="show-card-container">
                 {shows.map(show => (
                     <div key={show.show.id} className="show-card">
@@ -25,9 +50,6 @@ const ShowList = () => {
                         )}
                         <div className="card-details">
                             <h3 className="show-name">{show.show.name}</h3>
-                            {show.show.rating && (
-                                <p className="show-rating">Rating: {show.show.rating.average}</p>
-                            )}
                             <p className="show-language">{show.show.language}</p>
                             <Link to={`/show/${show.show.id}`} className="details-button">View Details</Link>
                         </div>

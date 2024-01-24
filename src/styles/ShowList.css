@@ -1,9 +1,44 @@
-/* ShowList.css */
-
 .show-list-container {
     text-align: center;
     padding: 20px;
+    margin-top: 20px;
 }
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #ccc;
+    /* Border color */
+    border-radius: 5px;
+    margin-left: 10px;
+    height: 50px;
+
+}
+
+.search-icon {
+    margin-left: 10px;
+}
+
+.search-bar input {
+
+    padding: 8px;
+    width: 100%;
+    margin-right: 10px;
+    /* border: 1px solid #ddd; */
+    border: none;
+    border-radius: 4px;
+    outline: none;
+}
+
 
 .show-card-container {
     display: flex;
@@ -15,7 +50,6 @@
 .show-card {
     width: calc(22.22% - 20px);
     margin: 10px;
-    padding: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
@@ -65,7 +99,7 @@
 .show-name {
     font-size: 25px;
     font-weight: bold;
-    margin-bottom: 2px;
+    margin-bottom: 20px;
 }
 
 .show-language {
@@ -81,8 +115,23 @@
     text-decoration: none;
     border-radius: 4px;
     transition: background-color 0.3s ease-in-out;
+    opacity: 0;
+    /* Initially hidden */
 }
 
 .show-card:hover .details-button {
     background-color: #0056b3;
+    opacity: 1;
+    /* Show on hover */
+}
+
+/* Remove the background color for .show-card */
+.show-card {
+    background-color: transparent;
+    padding: 0;
+    /* Remove padding */
+    box-shadow: none;
+    /* Remove box shadow */
+    border: none;
+    /* Remove border */
 }
