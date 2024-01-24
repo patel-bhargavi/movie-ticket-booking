@@ -8,8 +8,6 @@ const ShowDetails = () => {
     const [show, setShow] = useState(null);
 
     useEffect(() => {
-        // Fetch show details by ID
-        // Assuming you have an API endpoint to fetch show details by ID
         fetch(`https://api.tvmaze.com/shows/${showId}`)
             .then(response => response.json())
             .then(data => setShow(data))
@@ -93,7 +91,6 @@ const ShowDetails = () => {
                                     <label htmlFor="email">Email:</label>
                                     <input type="email" className="form-control" id="email" required />
                                 </div>
-                                {/* Add more form fields as needed */}
                                 <button type="submit" className="btn btn-primary">
                                     Book
                                 </button>

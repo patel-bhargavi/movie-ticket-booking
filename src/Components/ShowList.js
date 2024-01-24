@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import '../styles/ShowList.css'; // Import the CSS file
+import '../styles/ShowList.css';
 
 const ShowList = () => {
     const [shows, setShows] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
-        // Fetch data from the provided API
+    
         const fetchShows = async () => {
             let apiUrl = 'https://api.tvmaze.com/search/shows?q=all';
 

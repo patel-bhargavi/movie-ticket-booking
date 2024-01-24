@@ -17,7 +17,6 @@
     align-items: center;
     width: 100%;
     border: 1px solid #ccc;
-    /* Border color */
     border-radius: 5px;
     margin-left: 10px;
     height: 50px;
@@ -33,7 +32,6 @@
     padding: 8px;
     width: 100%;
     margin-right: 10px;
-    /* border: 1px solid #ddd; */
     border: none;
     border-radius: 4px;
     outline: none;
@@ -58,7 +56,6 @@
     position: relative;
 }
 
-/* Update the media query for smaller screens */
 @media (max-width: 600px) {
     .show-card {
         width: calc(70% - 20px);
@@ -71,7 +68,8 @@
 
 .show-image {
     width: 100%;
-    height: auto;
+    height: 350px;
+    object-fit: cover;
     border-bottom: 1px solid #ddd;
 }
 
@@ -116,22 +114,22 @@
     border-radius: 4px;
     transition: background-color 0.3s ease-in-out;
     opacity: 0;
-    /* Initially hidden */
+}
+
+.details-button:hover {
+    color: blue;
+    text-decoration: none;
+    background-color: #0056b3;
 }
 
 .show-card:hover .details-button {
     background-color: #0056b3;
     opacity: 1;
-    /* Show on hover */
 }
 
-/* Remove the background color for .show-card */
 .show-card {
     background-color: transparent;
     padding: 0;
-    /* Remove padding */
     box-shadow: none;
-    /* Remove box shadow */
     border: none;
-    /* Remove border */
 }
